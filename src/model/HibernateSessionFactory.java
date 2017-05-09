@@ -38,6 +38,7 @@ public class HibernateSessionFactory {
 		}
     }
     private HibernateSessionFactory() {
+    	System.out.println("Test");
     }
 	
 	/**
