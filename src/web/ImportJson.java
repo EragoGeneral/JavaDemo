@@ -91,14 +91,46 @@ public class ImportJson {
         }
 	}
 	
+	public static void splitDataToDB(List<LotteryInfo> lotteries) throws SQLException{
+		Connection conn = null;
+        String sql;
+        String url = "jdbc:mysql://localhost:3306/ebook?"
+                + "user=root&password=root&useUnicode=true&characterEncoding=UTF8";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
+ 
+            System.out.println("成功加载MySQL驱动程序");
+            conn = (Connection) DriverManager.getConnection(url);
+            Statement stmt = (Statement) conn.createStatement();
+            for(LotteryInfo li : lotteries){
+            	String[] redBallArray = li.getRedBall().split(",");
+            	
+            	sql = "insert into tb_lottery_ext(period, red_ball1, red_ball2, red_ball3, " +
+            			"red_ball4, red_ball5, red_ball6, blue_ball) " +
+            			"values('"+ li.getPeriod() +"',"+ redBallArray[0] +", "+redBallArray[1]
+            			+", "+redBallArray[2]+", "+redBallArray[3]+", "+redBallArray[4]+", "+redBallArray[5]
+            			+", "+ Integer.parseInt(li.getBlueBall()) +")";
+                stmt.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            System.out.println("MySQL操作错误");
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            conn.close();
+        }
+	}
+	
 	public static void main(String[] args) {
-		for(int year = 2017; year <= 2017; year++){
+		for(int year = 2003; year <= 2017; year++){
 			List<LotteryInfo> lotteries = readTxtFile("G:\\Lottery\\"+ year +".txt");
 	//		for(LotteryInfo li : lotteries){
 	//			System.out.println(li.getPeriod()+ ", " +li.getRedBall() + ", " + li.getBlueBall());
 	//		}
 			try {
-				saveDataToDB(lotteries);
+				//saveDataToDB(lotteries);
+				splitDataToDB(lotteries);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
