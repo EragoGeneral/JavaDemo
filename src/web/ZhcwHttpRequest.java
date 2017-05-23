@@ -147,8 +147,8 @@ public class ZhcwHttpRequest {
     
     public static void main(String[] args) {
         //∑¢ÀÕ GET «Î«Û
-    	int count = 2017;
-    	//for(int count = 2003; count < 2017; count++){
+    	//int count = 2005;
+    	for(int count = 2017; count <= 2017; count++){
 	    	//String s=ZhcwHttpRequest.sendGet("http://tubiao.zhcw.com/tubiao/ssqNew/ssqInc/ssqZongHeFengBuTuAsckj_year="+ count +".html","");
     		String s=ZhcwHttpRequest.sendGet("http://tubiao.zhcw.com/tubiao/ssqNew/ssqInc/ssqZongHeFengBuTuAsckj_year="+ count +".html","");
     		//System.out.println(s);
@@ -211,7 +211,7 @@ public class ZhcwHttpRequest {
 	          System.out.println(fileContent);
 	          writeFile(String.valueOf(count), fileContent);
 	        }
-    	//}
+    	}
         
 //        String ssss = sss.substring(0, sss.indexOf("</table>"));
 //        System.out.println(ssss.replaceAll(" ", ""));
