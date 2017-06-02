@@ -129,7 +129,7 @@ public class HttpRequest {
     	//String s=HttpRequest.sendGet("http://www.szlottery.org/noticeview","type=_ssq&issue=2007001%27%25E6%259C%259F");
     	String s=HttpRequest.sendGet("http://mp.weixin.qq.com/mp/getmasssendmsg","__biz=MzI2OTM2MDA1Mw==");
     	System.out.println(s);
-        /*System.out.println("===========截获信息===============");
+        /*System.out.println("===========截获信息===============");    
         String ss = s.substring(s.indexOf("class=\"bqhm\""));
         String sss = ss.substring(ss.indexOf("ul")-1);
         String ssss = sss.substring(0, sss.indexOf("</table>"));

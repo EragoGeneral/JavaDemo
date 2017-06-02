@@ -17,6 +17,10 @@ public class LotteryInfoExt {
 	
 	private String blueBall;
 
+	private int blueBall1;
+	
+	private int blueBall2;
+	
 	public String getPeriod() {
 		return period;
 	}
@@ -80,6 +84,20 @@ public class LotteryInfoExt {
 	public void setBlueBall(String blueBall) {
 		this.blueBall = blueBall;
 	}
-	
-	
+
+	public int getBlueBall1() {
+		return blueBall1;
+	}
+
+	public void setBlueBall1(int blueBall1) {
+		this.blueBall1 = blueBall1;
+	}
+
+	public int getBlueBall2() {
+		return blueBall2;
+	}
+
+	public void setBlueBall2(int blueBall2) {
+		this.blueBall2 = blueBall2;
+	}
 }
