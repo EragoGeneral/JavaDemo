@@ -212,8 +212,8 @@ public class XhsProductDetailHttpRequest {
     }
     
     public static void main(String[] args) throws SQLException {
-    	int start = 1545;
-		for(int i = start; i < start+100; i++){
+    	int start = 3666;
+		for(int i = start; i < start+10; i++){
 			int startPage = i*10;
     		List<OurProductInfo> products = queryProductDetail(startPage, 10);
     		parseProductImage(products, i);
